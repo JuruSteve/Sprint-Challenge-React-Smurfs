@@ -2,6 +2,8 @@
   background: #88ccff;
   width: 100%;
   padding: 20px 40px;
+  position: fixed;
+  top: 0;
 }
 
 .nav-links {

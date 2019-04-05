@@ -28,12 +28,17 @@ class App extends Component {
     axios
       .post("http://localhost:3333/smurfs", smurf)
       .then(res => {
-        console.log(res);
         this.setState({ smurfs: res.data });
       })
       .catch(err => {
         throw new Error("Failed to add a smurf to list of smurfs", err);
       });
+  };
+
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({ smurfs: res.data }));
   };
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -45,7 +50,13 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={props => <Smurfs smurfs={this.state.smurfs} {...props} />}
+          render={props => (
+            <Smurfs
+              smurfs={this.state.smurfs}
+              {...props}
+              deleteSmurf={this.deleteSmurf}
+            />
+          )}
         />
         <Route
           path="/smurf-form"
