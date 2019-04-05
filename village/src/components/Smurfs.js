@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Smurf from './Smurf';
-
+import Smurf from "./Smurf";
+import "./Smurf.css";
 class Smurfs extends Component {
   render() {
     return (
@@ -26,7 +26,7 @@ class Smurfs extends Component {
 }
 
 Smurf.defaultProps = {
- smurfs: [],
+  smurfs: []
 };
 
 export default Smurfs;
